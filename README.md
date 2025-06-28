@@ -1,12 +1,33 @@
-### What is Kubernetes?
+## What is Kubernetes?
 
 Kubernetes (also called K8s) is an open-source platform that helps you automates the deployment, scaling, and management of containerized applications. In simple words, if you're running a lot of apps using containers (like with Docker), Kubernetes helps you organize and control them efficiently just like a traffic controller for your apps.
 
-### K8s architecture 
+## K8s architecture 
 ![Screenshot (130)](https://github.com/user-attachments/assets/cba5f159-346e-4364-8459-2a4945b85e28)
+### 1. Control Plane 🧠
+This is the brain of your cluster, responsible for managing the overall state and scheduling:
 
+#### API Server
+The central access point. Every interaction with Kubernetes—whether from kubectl, a UI, or internal components—goes through the API server. It validates and processes configuration, then stores it in etcd.
+#### Scheduler
+Create pods at particular time.
+#### Controller Manager
+Manages actual state and desired state: i.e. Ensure the cluster matches the desired configuration.
+#### etcd
+A distributed key-value pair that stores all cluster data: resource definitions, current state, secrets, config maps, and more.
 
-### K8s Objects - 
+### 2. Worker Nodes 🛠️
+These nodes run your containerized applications. Each has:
+#### Kubelet
+Kubelet monitor pods. It checks pod is available or not, if not available it will create pod. 
+#### Container Runtime (e.g., Docker, containerd)
+Responsible for pulling container images and running container processes.
+Creates conteainers in pods.
+Decoupled container - More than 1 container.
+#### Kube-proxy
+Manages internal communication between services and pods (handles forwarding and load-balancing traffic).
+
+## K8s Objects - 
 
 ### 1. Pod
 
